@@ -1,0 +1,73 @@
+{
+  "repo": "apex-plat-compose-mesh",
+  "language": "Java",
+  "category": "Platform engineering",
+  "goal": "Package a Java local lab for compose analysis with deny and allow fixtures, explainable decision traces, and documented operating limits.",
+  "review_model": {
+    "terms": [
+      "rollout width",
+      "quota pressure",
+      "route drift",
+      "secret scope"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "rollout width",
+      "signal": 44,
+      "slack": 39,
+      "drag": 31,
+      "confidence": 55,
+      "score": 89,
+      "lane": "hold"
+    },
+    {
+      "name": "stress",
+      "focus": "quota pressure",
+      "signal": 53,
+      "slack": 45,
+      "drag": 29,
+      "confidence": 85,
+      "score": 149,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "route drift",
+      "signal": 78,
+      "slack": 32,
+      "drag": 18,
+      "confidence": 80,
+      "score": 214,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "secret scope",
+      "signal": 63,
+      "slack": 29,
+      "drag": 32,
+      "confidence": 91,
+      "score": 150,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "rollout width",
+      "signal": 64,
+      "slack": 33,
+      "drag": 17,
+      "confidence": 94,
+      "score": 204,
+      "lane": "ship"
+    }
+  ]
+}
